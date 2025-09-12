@@ -221,7 +221,7 @@ try {
 
 ---
 
-## 📝 Recomendaciones
+## Recomendaciones
 
 ### ✅ **Mantenimiento de Seguridad (Opcional)**
 
