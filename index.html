@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora CVSS v4.0</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Calculadora CVSS v4.0</h1>
+            <p>Sistema Común de Puntuación de Vulnerabilidades - Versión 4.0</p>
+        </header>
+
+        <main class="main-content">
+            <div class="calculator-wrapper">
+                <form id="cvssForm" class="cvss-form">
+                    <!-- Métricas Base -->
+                    <section class="metric-group">
+                        <h2>Métricas Base</h2>
+                        
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Vector de Ataque (AV)
+                                <span class="tooltip" data-tooltip="Refleja la proximidad de un atacante a un componente vulnerable">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="AV" value="N" required> Remoto (N)</label>
+                                <label><input type="radio" name="AV" value="A"> Adyacente (A)</label>
+                                <label><input type="radio" name="AV" value="L"> Local (L)</label>
+                                <label><input type="radio" name="AV" value="P"> Físico (P)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Complejidad de Ataque (AC)
+                                <span class="tooltip" data-tooltip="Describe las condiciones más allá del control del atacante">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="AC" value="L" required> Baja (L)</label>
+                                <label><input type="radio" name="AC" value="H"> Alta (H)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Requerimientos de Ataque (AT)
+                                <span class="tooltip" data-tooltip="Captura los prerrequisitos de despliegue y ejecución del ataque">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="AT" value="N" required> Ninguno (N)</label>
+                                <label><input type="radio" name="AT" value="P"> Presente (P)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Privilegios Requeridos (PR)
+                                <span class="tooltip" data-tooltip="Describe el nivel de privilegios que un atacante debe poseer">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="PR" value="N" required> Ninguno (N)</label>
+                                <label><input type="radio" name="PR" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="PR" value="H"> Alto (H)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Interacción de Usuario (UI)
+                                <span class="tooltip" data-tooltip="Captura el requisito de un usuario humano para participar">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="UI" value="N" required> Ninguna (N)</label>
+                                <label><input type="radio" name="UI" value="P"> Pasiva (P)</label>
+                                <label><input type="radio" name="UI" value="A"> Activa (A)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Confidencialidad del Sistema Vulnerable (VC)
+                                <span class="tooltip" data-tooltip="Impacto en la confidencialidad del sistema vulnerable">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="VC" value="H" required> Alto (H)</label>
+                                <label><input type="radio" name="VC" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="VC" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Integridad del Sistema Vulnerable (VI)
+                                <span class="tooltip" data-tooltip="Impacto en la integridad del sistema vulnerable">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="VI" value="H" required> Alto (H)</label>
+                                <label><input type="radio" name="VI" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="VI" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Disponibilidad del Sistema Vulnerable (VA)
+                                <span class="tooltip" data-tooltip="Impacto en la disponibilidad del sistema vulnerable">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="VA" value="H" required> Alto (H)</label>
+                                <label><input type="radio" name="VA" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="VA" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Confidencialidad del Sistema Subsecuente (SC)
+                                <span class="tooltip" data-tooltip="Impacto en la confidencialidad de sistemas subsecuentes">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="SC" value="H" required> Alto (H)</label>
+                                <label><input type="radio" name="SC" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="SC" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Integridad del Sistema Subsecuente (SI)
+                                <span class="tooltip" data-tooltip="Impacto en la integridad de sistemas subsecuentes">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="SI" value="H" required> Alto (H)</label>
+                                <label><input type="radio" name="SI" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="SI" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Disponibilidad del Sistema Subsecuente (SA)
+                                <span class="tooltip" data-tooltip="Impacto en la disponibilidad de sistemas subsecuentes">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="SA" value="H" required> Alto (H)</label>
+                                <label><input type="radio" name="SA" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="SA" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Métricas de Amenaza (Threat) -->
+                    <section class="metric-group">
+                        <h2>Métricas de Amenaza</h2>
+                        
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Madurez del Exploit (E)
+                                <span class="tooltip" data-tooltip="Refleja la probabilidad de que el exploit se use en la naturaleza">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="E" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="E" value="A"> Atacado (A)</label>
+                                <label><input type="radio" name="E" value="P"> Prueba de Concepto (P)</label>
+                                <label><input type="radio" name="E" value="U"> No Probado (U)</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Métricas Ambientales -->
+                    <section class="metric-group">
+                        <h2>Métricas Ambientales</h2>
+                        
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Requisito de Confidencialidad (CR)
+                                <span class="tooltip" data-tooltip="Importancia de la confidencialidad para la organización">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="CR" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="CR" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="CR" value="M"> Medio (M)</label>
+                                <label><input type="radio" name="CR" value="L"> Bajo (L)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Requisito de Integridad (IR)
+                                <span class="tooltip" data-tooltip="Importancia de la integridad para la organización">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="IR" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="IR" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="IR" value="M"> Medio (M)</label>
+                                <label><input type="radio" name="IR" value="L"> Bajo (L)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Requisito de Disponibilidad (AR)
+                                <span class="tooltip" data-tooltip="Importancia de la disponibilidad para la organización">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="AR" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="AR" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="AR" value="M"> Medio (M)</label>
+                                <label><input type="radio" name="AR" value="L"> Bajo (L)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Vector de Ataque Modificado (MAV)
+                                <span class="tooltip" data-tooltip="Vector de ataque ajustado para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MAV" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MAV" value="N"> Remoto (N)</label>
+                                <label><input type="radio" name="MAV" value="A"> Adyacente (A)</label>
+                                <label><input type="radio" name="MAV" value="L"> Local (L)</label>
+                                <label><input type="radio" name="MAV" value="P"> Físico (P)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Complejidad de Ataque Modificada (MAC)
+                                <span class="tooltip" data-tooltip="Complejidad de ataque ajustada para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MAC" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MAC" value="L"> Baja (L)</label>
+                                <label><input type="radio" name="MAC" value="H"> Alta (H)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Requerimientos de Ataque Modificados (MAT)
+                                <span class="tooltip" data-tooltip="Requerimientos de ataque ajustados para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MAT" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MAT" value="N"> Ninguno (N)</label>
+                                <label><input type="radio" name="MAT" value="P"> Presente (P)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Privilegios Requeridos Modificados (MPR)
+                                <span class="tooltip" data-tooltip="Privilegios requeridos ajustados para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MPR" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MPR" value="N"> Ninguno (N)</label>
+                                <label><input type="radio" name="MPR" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MPR" value="H"> Alto (H)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Interacción de Usuario Modificada (MUI)
+                                <span class="tooltip" data-tooltip="Interacción de usuario ajustada para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MUI" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MUI" value="N"> Ninguna (N)</label>
+                                <label><input type="radio" name="MUI" value="P"> Pasiva (P)</label>
+                                <label><input type="radio" name="MUI" value="A"> Activa (A)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Confidencialidad del Sistema Vulnerable Modificada (MVC)
+                                <span class="tooltip" data-tooltip="Impacto en confidencialidad ajustado para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MVC" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MVC" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="MVC" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MVC" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Integridad del Sistema Vulnerable Modificada (MVI)
+                                <span class="tooltip" data-tooltip="Impacto en integridad ajustado para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MVI" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MVI" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="MVI" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MVI" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Disponibilidad del Sistema Vulnerable Modificada (MVA)
+                                <span class="tooltip" data-tooltip="Impacto en disponibilidad ajustado para el entorno específico">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MVA" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MVA" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="MVA" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MVA" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Confidencialidad del Sistema Subsecuente Modificada (MSC)
+                                <span class="tooltip" data-tooltip="Impacto en confidencialidad subsecuente ajustado para el entorno">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MSC" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MSC" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="MSC" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MSC" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Integridad del Sistema Subsecuente Modificada (MSI)
+                                <span class="tooltip" data-tooltip="Impacto en integridad subsecuente ajustado para el entorno">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MSI" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MSI" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="MSI" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MSI" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Disponibilidad del Sistema Subsecuente Modificada (MSA)
+                                <span class="tooltip" data-tooltip="Impacto en disponibilidad subsecuente ajustado para el entorno">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="MSA" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="MSA" value="H"> Alto (H)</label>
+                                <label><input type="radio" name="MSA" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="MSA" value="N"> Ninguno (N)</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Métricas Suplementarias -->
+                    <section class="metric-group">
+                        <h2>Métricas Suplementarias</h2>
+                        
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Seguridad (S)
+                                <span class="tooltip" data-tooltip="Impacto potencial en la seguridad física o de personas">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="S" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="S" value="N"> Sin Impacto (N)</label>
+                                <label><input type="radio" name="S" value="P"> Presente (P)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Automatizable (AU)
+                                <span class="tooltip" data-tooltip="Indica si la vulnerabilidad puede ser explotada automáticamente">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="AU" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="AU" value="N"> No (N)</label>
+                                <label><input type="radio" name="AU" value="Y"> Sí (Y)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Recuperación (R)
+                                <span class="tooltip" data-tooltip="Capacidad del sistema para recuperarse después del ataque">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="R" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="R" value="A"> Automática (A)</label>
+                                <label><input type="radio" name="R" value="U"> Usuario (U)</label>
+                                <label><input type="radio" name="R" value="I"> Irrecuperable (I)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Densidad de Valor (V)
+                                <span class="tooltip" data-tooltip="Concentración de recursos o información valiosa">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="V" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="V" value="D"> Difusa (D)</label>
+                                <label><input type="radio" name="V" value="C"> Concentrada (C)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Esfuerzo de Respuesta de Vulnerabilidad (RE)
+                                <span class="tooltip" data-tooltip="Esfuerzo requerido para responder a la vulnerabilidad">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="RE" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="RE" value="L"> Bajo (L)</label>
+                                <label><input type="radio" name="RE" value="M"> Medio (M)</label>
+                                <label><input type="radio" name="RE" value="H"> Alto (H)</label>
+                            </div>
+                        </div>
+
+                        <div class="metric-row">
+                            <label class="metric-label">
+                                Urgencia del Proveedor (U)
+                                <span class="tooltip" data-tooltip="Evaluación de urgencia proporcionada por el proveedor">ℹ</span>
+                            </label>
+                            <div class="metric-options">
+                                <label><input type="radio" name="U" value="X" checked> No Definido (X)</label>
+                                <label><input type="radio" name="U" value="C"> Claro (C)</label>
+                                <label><input type="radio" name="U" value="G"> Verde (G)</label>
+                                <label><input type="radio" name="U" value="A"> Ámbar (A)</label>
+                                <label><input type="radio" name="U" value="R"> Rojo (R)</label>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+
+                <div class="results-section">
+                    <div class="score-display">
+                        <div class="score-value" id="scoreValue">0.0</div>
+                        <div class="score-label" id="scoreLabel">Base Score</div>
+                        <div class="severity-level" id="severityLevel">Ninguno</div>
+                    </div>
+                    
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <span class="score-name">Base:</span>
+                            <span class="score-val" id="baseScore">0.0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-name">Threat:</span>
+                            <span class="score-val" id="threatScore">0.0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-name">Environmental:</span>
+                            <span class="score-val" id="envScore">0.0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vector-string">
+                        <label>Vector String CVSS v4.0:</label>
+                        <div class="vector-output" id="vectorString">CVSS:4.0/AV:_/AC:_/AT:_/PR:_/UI:_/VC:_/VI:_/VA:_/SC:_/SI:_/SA:_</div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" id="resetBtn" class="btn-secondary">Reiniciar</button>
+                        <button type="button" id="copyBtn" class="btn-primary">Copiar Vector</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Implementación basada en la especificación oficial CVSS v4.0 de FIRST</p>
+        </footer>
+    </div>
+
+    <script src="js/cvss-data.js"></script>
+    <script src="js/cvss-calculator.js"></script>
+    <script src="js/ui-manager.js"></script>
+</body>
+</html>
