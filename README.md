@@ -2,7 +2,7 @@
 
 Una implementación completa en español de la **Calculadora de Sistema Común de Puntuación de Vulnerabilidades (CVSS) versión 4.0**, basada en la especificación oficial de FIRST (Forum of Incident Response and Security Teams).
 
-## 🚀 Características
+## Características
 
 - ✅ **Implementación oficial**: Basada en la especificación CVSS v4.0 de FIRST
 - ✅ **Cálculo preciso**: Utiliza la tabla de lookup oficial y algoritmo de MacroVectors
@@ -12,7 +12,7 @@ Una implementación completa en español de la **Calculadora de Sistema Común d
 - ✅ **Vector String**: Generación automática del vector CVSS v4.0
 - ✅ **Multiidioma**: Interfaz completamente en español
 
-## 📋 Métricas CVSS v4.0 Completas
+## Métricas CVSS v4.0 Completas
 
 La calculadora incluye **TODAS** las métricas CVSS v4.0 organizadas en 4 grupos:
 
@@ -75,7 +75,7 @@ open http://localhost:8000
 ### Método 2: Directamente desde archivo
 Simplemente abre `index.html` en tu navegador web.
 
-## 📖 Cómo usar la calculadora
+## Cómo usar la calculadora
 
 1. **Completa las métricas base**: Selecciona valores para las 11 métricas base obligatorias
 2. **Añade métricas opcionales**: 
@@ -100,7 +100,7 @@ Simplemente abre `index.html` en tu navegador web.
 | 7.0 - 8.9 | Alto | Rojo |
 | 9.0 - 10.0 | Crítico | Púrpura |
 
-## 🔬 Verificación y Precisión
+## Verificación y Precisión
 
 La implementación ha sido verificada contra:
 - ✅ Ejemplos oficiales de FIRST
@@ -109,7 +109,7 @@ La implementación ha sido verificada contra:
 
 Para ejecutar las pruebas de verificación, abre `test-vectors.html` en tu navegador.
 
-## 🏗 Arquitectura Técnica
+## Arquitectura Técnica
 
 ### Estructura del Proyecto
 ```
@@ -142,7 +142,7 @@ La calculadora implementa el algoritmo oficial CVSS v4.0:
 - **JavaScript ES6+**: Lógica de cálculo sin dependencias
 - **Design System**: Inspirado en Material Design
 
-## 🧪 Casos de Prueba
+## Casos de Prueba
 
 La calculadora incluye verificación automática contra estos casos oficiales:
 
@@ -164,7 +164,7 @@ Vector: CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N
 Score: 0.0
 ```
 
-## 🔧 API JavaScript
+## API JavaScript
 
 La calculadora expone una API JavaScript para uso programático:
 
@@ -187,18 +187,18 @@ window.importCVSSVector("CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/S
 const currentState = window.getCurrentCVSSState();
 ```
 
-## 📚 Referencias
+## Referencias
 
 - [CVSS v4.0 Specification](https://www.first.org/cvss/v4-0/specification-document)
 - [FIRST CVSS v4.0 Calculator](https://github.com/FIRSTdotorg/cvss-v4-calculator)
 - [NIST CVSS v4.0 Calculator](https://nvd.nist.gov/vuln-metrics/cvss/v4-calculator)
 - [CVSS v4.0 Examples](https://www.first.org/cvss/examples)
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está inspirado en la implementación oficial de FIRST y mantiene compatibilidad con la licencia BSD-2-Clause del proyecto original.
 
-## 🤝 Contribuciones
+## Contribuciones
 
 Las contribuciones son bienvenidas. Por favor:
 
@@ -207,7 +207,7 @@ Las contribuciones son bienvenidas. Por favor:
 3. Asegúrate de que las pruebas pasen
 4. Documenta cualquier cambio significativo
 
-## 📞 Soporte
+## Soporte
 
 Para reportar problemas o sugerir mejoras, por favor abre un issue en el repositorio del proyecto.
 
