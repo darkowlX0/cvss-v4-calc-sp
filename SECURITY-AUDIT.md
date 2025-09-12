@@ -5,13 +5,13 @@
 **Tipo de aplicación:** Cliente-side Web Application (SPA)  
 **Lenguajes:** HTML5, CSS3, JavaScript ES6+  
 
-## 📊 Resumen Ejecutivo
+## Resumen Ejecutivo
 
 **Estado de Seguridad: ✅ SEGURO**
 
 La calculadora CVSS v4.0 ha pasado una auditoría de seguridad completa y **NO presenta vulnerabilidades críticas o de alto riesgo**. La aplicación sigue las mejores prácticas de seguridad para aplicaciones web del lado cliente.
 
-### 🎯 Puntos Clave
+### Puntos Clave
 - ✅ **Sin vulnerabilidades críticas**
 - ✅ **Sin exposición de datos sensibles**
 - ✅ **Protección contra XSS implementada**
@@ -20,7 +20,7 @@ La calculadora CVSS v4.0 ha pasado una auditoría de seguridad completa y **NO p
 
 ---
 
-## 🔍 Metodología de Auditoría
+## Metodología de Auditoría
 
 ### Áreas Revisadas
 1. **HTML/DOM Security** - XSS, CSRF, Content Security
@@ -37,7 +37,7 @@ La calculadora CVSS v4.0 ha pasado una auditoría de seguridad completa y **NO p
 
 ---
 
-## 📋 Hallazgos Detallados
+## Hallazgos Detallados
 
 ### ✅ **SEGURIDAD HTML/DOM**
 
@@ -140,7 +140,7 @@ La calculadora CVSS v4.0 ha pasado una auditoría de seguridad completa y **NO p
 
 ---
 
-## 🔧 Uso Seguro de Funciones Potencialmente Peligrosas
+## Uso Seguro de Funciones Potencialmente Peligrosas
 
 ### setTimeout() Usage
 **Ubicaciones encontradas:**
@@ -172,7 +172,7 @@ alert(`Error al importar vector string: ${error.message}`);
 
 ---
 
-## 🛡️ Medidas de Seguridad Implementadas
+## Medidas de Seguridad Implementadas
 
 ### **1. Input Sanitization**
 ```javascript
@@ -209,7 +209,7 @@ try {
 
 ---
 
-## 📊 Matriz de Riesgo
+## Matriz de Riesgo
 
 | Vulnerabilidad | Probabilidad | Impacto | Riesgo Final | Estado |
 |----------------|--------------|---------|--------------|---------|
@@ -246,7 +246,7 @@ try {
 
 ---
 
-## 🔍 Conclusión
+## Conclusión
 
 La **Calculadora CVSS v4.0 es segura** para su despliegue y uso público. La aplicación:
 
@@ -256,7 +256,7 @@ La **Calculadora CVSS v4.0 es segura** para su despliegue y uso público. La apl
 4. **Protege contra ataques comunes** (XSS, injection, etc.)
 5. **No maneja datos sensibles** que requieran protección especial
 
-### 🎖️ **Certificación de Seguridad**
+### **Certificación de Seguridad**
 
 **APROBADO ✅**
 
@@ -264,6 +264,6 @@ Esta aplicación cumple con los estándares de seguridad para aplicaciones web y
 
 ---
 
-**Auditor:** Code Security Review by kastudi  
+**Auditor:** Code Security Review by darkowlX0  
 **Fecha:** 11 de septiembre de 2024  
 **Próxima revisión recomendada:** Al agregar nuevas funcionalidades
