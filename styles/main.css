@@ -124,7 +124,6 @@ body {
     padding: 0.5rem;
     border-radius: 4px;
     font-size: 0.8rem;
-    white-space: nowrap;
     z-index: 1000;
     max-width: 200px;
     white-space: normal;
